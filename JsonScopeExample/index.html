@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link href="style.css" rel="stylesheet" />
+    <script data-semver="1.2.17" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-require="angular.js@1.2.x"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <p>Hello {{name}}!</p>
+    
+    
+<h3>My Tweets</h3>
+<p ng-repeat="tweet in tweets">
+@{{tweet.author}}: {{tweet.text}}
+</p>
+    
+<div ng-repeat="post in posts">
+<h2>
+<a href='{{post.url}}'>{{post.title}}</a>
+</h2>
+<div class='time'>{{post.time}} - {{post.author}} </div>
+<p>{{post.description}}</p>
+<img ng-src="{{post.banner}}" />
+</div>    
+    
+    
+
+    
+  </body>
+
+</html>

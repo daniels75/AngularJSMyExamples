@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <script src="angular1.2.7.js"></script>
+  <script src="app1.js"></script>
+</head>
+<body>
+  
+
+  <div ng-init="myProperty = 'wow, this is cool'"></div>
+  Surrounding scope: {{ myProperty }}
+  <div my-inherit-scope-directive="SomeCtrl">
+    Inside an directive with inherited scope: {{ myProperty }}
+  </div>
+  <div my-directive>
+    Inside myDirective, isolate scope: {{ myProperty }}
+  <div>
+
+  <script>
+
+  </script>
+
+</body>
+</html>

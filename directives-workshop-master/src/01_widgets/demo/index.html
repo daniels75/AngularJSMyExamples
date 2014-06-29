@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+<head>
+    <title>Custom widgets</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet">
+    <script src="../../../lib/angular.js"></script>
+    <script src="rating.js"></script>
+    <script src="ratingNgModel.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.rating', 'bs.rating2'])
+                .controller('RatingDemoController', function () {
+
+                    this.maxValue = 10;
+                    this.myValue = 5;
+
+                    this.onRatingChange = function(newRating, oldRating) {
+                        console.log('Rating was changed from ' + oldRating + ' to ' + newRating);
+                    };
+
+                    this.onModelChange = function () {
+                        console.log('New rating is: ' + $scope.myValue);
+                    };
+                });
+    </script>
+
+</head>
+<body ng-controller="RatingDemoController as demo">
+<div class="container">
+
+    <div class="well">
+        <label for="ratingValue">Current Rating:</label>
+        <input type="number" ng-model="demo.myValue" min="0" max="{{demo.maxValue}}" class="form-control" id="ratingValue">
+      <label for="maxRating">Max Rating:</label>
+        <input type="number" ng-model="demo.maxValue" min="0" class="form-control" id="maxRating">
+    </div>
+
+    <bs-rating rating="demo.myValue" max-rating="demo.maxValue" rated="demo.onRatingChange($new, $old)"></bs-rating>
+
+    <!-- Alternative approach, using ngModel
+    <bs-rating2 ng-model="demo.myValue" max-rating="demo.maxValue" ng-change="demo.onModelChange()"></bs-rating2>
+    -->
+
+</div>
+</body>
+</html>

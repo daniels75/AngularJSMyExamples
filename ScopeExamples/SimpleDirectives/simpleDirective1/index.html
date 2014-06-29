@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.10/angular.js" data-semver="1.2.10"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <p>Hello {{name}}!</p>
+    <my-directive></my-directive>
+
+    <div my-directive-with-args my-url-dont-work="http://onet.pl" my-link-text="Click me to go to Onet">
+    <div my-directive1 my-url="http://google.com"  my-link-text="Click me - directive1"></div>
+
+    </div>
+
+
+  </br>
+    <label>Their URL field:</label>
+  <input type="text" ng-model="theirUrl">
+  <div my-directive2
+       some-attr="theirUrl"
+       my-link-text="Click me to go to Google - directive2"></div>
+
+  </body>
+
+</html>

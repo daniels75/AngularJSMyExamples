@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+   <script src="angular1.2.7.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <div ng-controller="HelloCtrl">
+     <p>Hello {{name}}!</p>
+  </div>
+ 
+  
+  
+  <div ng-controller="MyDirectiveCtrl">
+    <h2>Parent Scope</h2>
+    <input ng-model="foo"> <i>// Update to see how parent scope interacts with component scope</i>    
+    <br><br>
+    <!-- attribute-foo binds to a DOM attribute which is always
+    a string. That is why we are wrapping it in curly braces so 
+    that it can be interpolated. 
+    -->
+    <my-component attribute-foo="{{foo}}" binding-foo="foo" 
+        isolated-expression-foo="updateFoo(newFoo)" >
+            
+        <h2>Attribute</h2>
+        <div>
+            <strong>get:</strong> {{isolatedAttributeFoo}}
+        </div>
+        <div>
+            <strong>set:</strong> <input ng-model="isolatedAttributeFoo">
+            <i>// This does not update the parent scope.</i>
+        </div>
+            
+        <h2>Binding</h2>
+        <div>
+            <strong>get:</strong> {{isolatedBindingFoo}}
+        </div>
+        <div>
+            <strong>set:</strong> <input ng-model="isolatedBindingFoo">
+            <i>// This does update the parent scope.</i>
+        </div>
+            
+        <h2>Expression</h2>    
+        <div>
+            <input ng-model="isolatedFoo">
+            <button class="btn" ng-click="isolatedExpressionFoo({newFoo:isolatedFoo})">Submit</button>
+            <i>// And this calls a function on the parent scope.</i>
+        </div>
+    </my-component>
+</div>
+  
+  
+  
+</body>
+
+</html>

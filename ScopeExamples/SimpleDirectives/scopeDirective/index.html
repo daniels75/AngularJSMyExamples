@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+
+  <div ng-init="myProperty = 'wow, this is cool'"></div>
+  Surrounding scope: {{ myProperty }}
+  <div my-inherit-scope-directive="SomeCtrl">
+    Inside an directive with inherited scope: {{ myProperty }}
+  </div>
+  <div my-directive>
+    Inside myDirective, isolate scope: {{ myProperty }}
+  <div>
+
+  </body>
+
+</html>

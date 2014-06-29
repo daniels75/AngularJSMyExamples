@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="myApp">
+<!--
+  Created using jsbin.com
+  Source can be edited via http://jsbin.com/URuyoG/1/edit
+-->
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+  <script src="app.js"></script>
+  <style>
+    #root {
+      background-color: orange;
+      font-size: 20px;
+      padding: 10px;
+      margin: 10px;
+    }  
+    #parentCtrl {
+      background-color: yellow;
+      font-size: 20px;
+      padding: 10px;
+    }
+    #childCtrl {
+      background-color: green;
+      font-size: 20px;
+      padding: 10px;
+    }
+  </style>
+
+<style id="jsbin-css">
+
+</style>
+</head>
+<body>
+ <div id="root">
+  <p>We can access: <b>{{ rootProperty }}</b></p>
+  <div id="parentCtrl" ng-controller="ParentCtrl">
+    <p>We can access: <b>{{ rootProperty }}</b> and <b>{{ parentProperty }}</b></p>
+    <div id="childCtrl" ng-controller="ChildCtrl">
+      <p>
+        We can access:
+        <b>{{ rootProperty }}</b> and
+        <b>{{ parentProperty }} </b>and
+        <b>{{ childProperty }}</b>
+      </p>
+      <p><b>{{ fullSentenceFromChild }}</b></p>
+    </div>
+  </div>
+</div>
+  <script>
+
+  </script>
+
+<script>
+
+</script>
+</body>
+</html>
